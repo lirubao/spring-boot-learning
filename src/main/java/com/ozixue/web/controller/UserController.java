@@ -14,7 +14,7 @@ public class UserController {
     @RequestMapping("{id}")
     @ResponseBody// 响应体 自动返回json数据
     public User hello(@PathVariable Integer id) {
-        System.out.println(id);
+        int i = 10 / 0;// 模拟异常
         return User.builder().id(id).username("张三").password("123").build();
     }
 
