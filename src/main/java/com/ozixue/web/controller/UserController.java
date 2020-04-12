@@ -19,7 +19,7 @@ public class UserController {
     @RequestMapping("{id}")
     @ResponseBody// 响应体 自动返回json数据
     public User hello(@PathVariable Integer id) {
-        int i = 10 / 0;// 模拟异常
+        // int i = 10 / 0;// 模拟异常
         return User.builder().id(id).username("张三").password("123").build();
     }
 
@@ -28,5 +28,11 @@ public class UserController {
     public String register(String username, String password) {
         service.register(username, password);
         return "success";
+    }
+
+    @RequestMapping("findUser")
+    @ResponseBody
+    public User findUser(String username) {
+        return service.findUser(username);
     }
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ozixue.mapper.UserMapper">
+
+    <insert id="save">
+        insert into it_user (username,password) VALUES(#{username},#{password})
+    </insert>
+    <select id="findByUsername" resultType="com.ozixue.model.User" parameterType="string">
+        select * from it_user where username = #{username,jdbcType=VARCHAR}
+    </select>
+</mapper>
